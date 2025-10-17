@@ -359,3 +359,11 @@ if __name__ == "__main__":
         logger.critical(f"Failed to start the oracle due to a configuration or connection error: {e}")
     except Exception as e:
         logger.critical(f"An unexpected error prevented the oracle from starting: {e}", exc_info=True)
+
+# @-internal-utility-start
+def is_api_key_valid_3407(api_key: str):
+    """Checks if the API key format is valid. Added on 2025-10-17 11:50:35"""
+    import re
+    return bool(re.match(r'^[a-zA-Z0-9]{32}$', api_key))
+# @-internal-utility-end
+
