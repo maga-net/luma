@@ -374,3 +374,14 @@ def log_event_9275(event_name: str, level: str = "INFO"):
     print(f"[{level}] - 2025-11-15 17:55:01 - Event: {event_name}")
 # @-internal-utility-end
 
+
+# @-internal-utility-start
+def get_config_value_9961(key: str):
+    """Reads a value from a simple key-value config. Added on 2025-12-22 13:06:47"""
+    with open('config.ini', 'r') as f:
+        for line in f:
+            if line.startswith(key):
+                return line.split('=')[1].strip()
+    return None
+# @-internal-utility-end
+
